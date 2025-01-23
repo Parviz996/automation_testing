@@ -14,4 +14,230 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <dependencyManagement>
+        <dependencies>
+            <!-- To determine the versions of other dependencies related to Allure -->
+            <dependency>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>2.8</version>
+            </dependency>
+
+            <!-- To specify the versions of other dependencies related to JUnit -->
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.13.2</version>
+                <scope>test</scope>
+            </dependency>
+
+            <!-- To determine the versions of other dependencies related to Cucumber -->
+            <dependency>
+                <groupId>io.cucumber</groupId>
+                <artifactId>cucumber-java</artifactId>
+                <version>7.20.1</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+
+    <dependencies>
+        <!-- Enables the API module of the SLF4J library to be used in the project -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>2.0.9</version>
+        </dependency>
+
+        <!-- Enables the use of a simple implementation of the SLF4J library -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>2.0.9</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Enables logging using SLF4J modules and enables Log4j 2 to use sub-logging -->
+
+
+        <!-- Enables the usage of the core features of the Log4j library in the project -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j2-impl</artifactId>
+            <version>2.20.0</version>
+        </dependency>
+
+        <!-- Enables the file and data processing features of the Apache Commons IO library to be used in the project -->
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.15.0</version>
+        </dependency>
+
+        <!-- Enables the use of the Lombok library in the project -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.30</version>
+            <scope>test</scope>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>4.16.1</version>
+        </dependency>
+
+        <!--        <dependency>-->
+        <!--            <groupId>org.seleniumhq.selenium</groupId>-->
+        <!--            <artifactId>selenium-devtools-v131</artifactId>-->
+        <!--            <version>4.13.0</version>-->
+        <!--        </dependency>-->
+
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>7.20.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-junit</artifactId>
+            <version>7.20.1</version>
+            <scope>test</scope>
+        </dependency>
+
+
+        <!--        <dependency>-->
+        <!--            <groupId>io.cucumber</groupId>-->
+        <!--            <artifactId>cucumber-junit-platform-engine</artifactId>-->
+        <!--            <scope>test</scope>-->
+        <!--        </dependency>-->
+
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-suite-api</artifactId>
+            <version>1.11.4</version>
+            <scope>test</scope>
+        </dependency>
+
+
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-cucumber7-jvm</artifactId>
+            <version>2.29.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-junit-platform</artifactId>
+            <version>2.29.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>net.masterthought</groupId>
+            <artifactId>maven-cucumber-reporting</artifactId>
+            <version>5.7.6</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>tech.grasshopper</groupId>
+            <artifactId>extentreports-cucumber7-adapter</artifactId>
+            <version>1.14.0</version>
+        </dependency>
+
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- To manage specific test scenarios in a Maven project and proceed by ignoring the failure -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>3.1.2</version>
+                <configuration>
+                    <testFailureIgnore>true</testFailureIgnore>   <!-- Continue execution if the scenario fails -->
+                    <skipTests>false</skipTests>
+                    <includes>
+                        <include>**/runners/*Runner*.java</include>       <!-- Check if this path is correct -->
+                    </includes>
+                </configuration>
+            </plugin>
+
+            <!-- Maven plugin configuration for managing and executing tests -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.2.5</version>
+                <configuration>
+                    <parallel>methods</parallel> <!-- Specifies at which level tests will be run in parallel -->
+                    <threadCount>2</threadCount> <!-- Specifies the number of tests to be run concurrently -->
+                    <perCoreThreadCount>false
+                    </perCoreThreadCount> <!-- Calculates and sets the thread count based on the number of processor cores -->
+                    <forkCount>2
+                    </forkCount> <!-- Specifies the number of processes to be started in parallel. In this example, 2 separate processes are initiated, each running a different test suite.The purpose of this is to complete tests faster. However, increasing this may affect the system and performance -->
+                    <reuseForks>true</reuseForks> <!-- Maven reuses processes created in previous tests -->
+                    <includes>
+                        <include>**/runners/*TestRunner*.java
+                        </include>  <!-- Specifies the test classes to be executed -->
+                    </includes>
+                    <testFailureIgnore>true
+                    </testFailureIgnore> <!-- Specifies whether to continue with other tests in case of failure in one test -->
+                    <argLine>-Dfile.encoding=${project.build.sourceEncoding}
+                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/1.9.20.1/aspectjweaver-1.9.20.1.jar"
+                    </argLine>
+                    <systemPropertyVariables> <!-- To specify the directory where Allure reports will be generated -->
+                        <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
+                    </systemPropertyVariables>
+                </configuration>
+                <dependencies>
+                    <dependency> <!-- Specifies the dependencies used by the plugin -->
+                        <groupId>org.aspectj</groupId>
+                        <artifactId>aspectjweaver</artifactId>
+                        <version>1.9.20.1</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+
+            <!-- Maven plugin configuration for generating Allure reports -->
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>2.12.0</version>
+                <configuration>
+                    <reportVersion>2.24.0</reportVersion>
+                    <resultsDirectory>${project.build.directory}/allure-results</resultsDirectory>
+                </configuration>
+            </plugin>
+
+            <!-- To compile Java source code -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.12.1</version>
+                <configuration>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                    <release>21</release>
+                    <source>21</source>
+                    <target>21</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>2.12.0</version>
+            </plugin>
+        </plugins>
+    </reporting>
+
 </project>
