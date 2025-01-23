@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="14.445" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="Bank_Account_Register" name="Register a new bank account" time="14.159">
+<system-out><![CDATA[
+And User visits the url.....................................................passed
+And Click register section..................................................passed
+And User writes firstName...................................................passed
+And User writes lastName....................................................passed
+And User writes Address.....................................................passed
+And User writes City........................................................passed
+And User writes State.......................................................passed
+And User writes Zipcode.....................................................passed
+And User writes Phone.......................................................passed
+And User writes SSN.........................................................passed
+And User writes Username....................................................passed
+And User writes Password....................................................passed
+And User writes Confirm.....................................................passed
+And User clicks Register button.............................................passed
+]]></system-out>
+</testcase>
+</testsuite>
