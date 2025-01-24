@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="14.445" tests="1" skipped="0" failures="0" errors="0">
-<testcase classname="Bank_Account_Register" name="Register a new bank account" time="14.159">
+<testsuite name="Cucumber" time="12.543" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="Bank_Account_Register" name="Register a new bank account" time="12.26">
 <system-out><![CDATA[
 And User visits the url.....................................................passed
 And Click register section..................................................passed

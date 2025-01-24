@@ -26,14 +26,17 @@ public class RegisterSteps {
 
     @And("User writes firstName")
     public void userWritesFirstName() {
+        register.firstName.sendKeys(ConfigReader.getProperty("firstName"));
     }
 
     @And("User writes lastName")
     public void userWritesLastName() {
+        register.lastName.sendKeys(ConfigReader.getProperty("lastName"));
     }
 
     @And("User writes Address")
     public void userWritesAddress() {
+        register.address.sendKeys((ConfigReader.getProperty("address")));
     }
 
     @And("User writes City")
