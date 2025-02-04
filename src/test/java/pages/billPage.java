@@ -11,7 +11,7 @@ public class billPage {
     }
 
     @FindBy(xpath = "//input[@name='username']")
-    public WebElement username;
+    public static WebElement username;
 
     @FindBy(xpath = "//input[@name='password']")
     public WebElement password;
