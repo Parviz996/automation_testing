@@ -1,31 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="20.56" tests="1" skipped="0" failures="1" errors="0">
-<testcase classname="BillPay" name="Payment" time="20.255">
-<failure type="java.lang.IllegalArgumentException" message="Keys to send should be a not null CharSequence">
-<![CDATA[java.lang.IllegalArgumentException: Keys to send should be a not null CharSequence
-	at org.openqa.selenium.remote.RemoteWebElement.sendKeys(RemoteWebElement.java:97)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
-	at jdk.proxy2/jdk.proxy2.$Proxy21.sendKeys(Unknown Source)
-	at stepdefinitions.billPaySteps.userEnterCity(billPaySteps.java:47)
-	at ✽.User enter city(file:///C:/Users/parviz.baxshaliyev/IdeaProjects/LibrarySystem/TEST/src/test/resources/features/billPay.feature:10)
-]]>
-</failure>
+<testsuite name="Cucumber" time="19.242" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="BillPay" name="Payment" time="18.953">
 <system-out><![CDATA[
 And User enter name.........................................................passed
 And User enter password.....................................................passed
 And User click billPay section..............................................passed
 And User enter payeeName....................................................passed
 And User enter address......................................................passed
-And User enter city.........................................................failed
-And User enter state........................................................skipped
-And User enter zipcode......................................................skipped
-And User enter phone........................................................skipped
-And User enter account......................................................skipped
-And User enter verifyAccount................................................skipped
-And User enter amount.......................................................skipped
-And User click sendPayment button...........................................skipped
+And User enter city.........................................................passed
+And User enter state........................................................passed
+And User enter zipcode......................................................passed
+And User enter phone........................................................passed
+And User enter account......................................................passed
+And User enter verifyAccount................................................passed
+And User enter amount.......................................................passed
+And User click sendPayment button...........................................passed
 ]]></system-out>
 </testcase>
 </testsuite>

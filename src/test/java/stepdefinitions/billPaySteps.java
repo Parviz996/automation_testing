@@ -31,47 +31,55 @@ public class billPaySteps {
 
     @And("User enter payeeName")
     public void userEnterPayeeName() throws InterruptedException {
-        Thread.sleep(5000);
-        billpage.billpaySection.sendKeys(ConfigReader.getProperty("name2"));
-//        billpage.billpaySection.click();
+        Thread.sleep(3000);
+        billpage.payeeName.sendKeys(ConfigReader.getProperty("name2"));
     }
 
     @And("User enter address")
-    public void userEnterAddress() {
-//        billpage.payeeName.sendKeys(ConfigReader.getProperty("addressSecond"));
-        billpage.payeeName.sendKeys(ConfigReader.getProperty("addressSecond"));
+    public void userEnterAddress() throws InterruptedException {
+        Thread.sleep(1000);
+        billpage.payeeStreet.sendKeys(ConfigReader.getProperty("addressSecond"));
     }
 
     @And("User enter city")
     public void userEnterCity() {
-        billpage.payeeCity.sendKeys(ConfigReader.getProperty(""));
+        billpage.payeeCity.sendKeys(ConfigReader.getProperty("secondCity"));
     }
 
     @And("User enter state")
     public void userEnterState() {
+        billpage.payeeState.sendKeys(ConfigReader.getProperty("state2"));
+
     }
 
     @And("User enter zipcode")
-    public void userEnterZipcode() {
+    public void userEnterZipcode() throws InterruptedException {
+        Thread.sleep(3000);
+        billpage.payeeZipcode.sendKeys(ConfigReader.getProperty("zip"));
     }
 
     @And("User enter phone")
     public void userEnterPhone() {
+        billpage.payeePhone.sendKeys(ConfigReader.getProperty("phone"));
     }
 
     @And("User enter account")
     public void userEnterAccount() {
+        billpage.account.sendKeys(ConfigReader.getProperty("account"));
     }
 
     @And("User enter verifyAccount")
     public void userEnterVerifyAccount() {
+        billpage.verifyAccount.sendKeys(ConfigReader.getProperty("account"));
     }
 
     @And("User enter amount")
     public void userEnterAmount() {
+        billpage.amount.sendKeys(ConfigReader.getProperty("amount"));
     }
 
     @And("User click sendPayment button")
     public void userClickSendPaymentButton() {
+        billpage.sendPaymentButton.click();
     }
 }
