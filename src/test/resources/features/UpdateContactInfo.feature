@@ -1,7 +1,6 @@
 @UpdateInfo
 
   Feature: Update
-
     Scenario: UpdateInfo
       Given User includes page
       And User sends name
