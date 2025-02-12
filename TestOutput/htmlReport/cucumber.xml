@@ -1,20 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="19.242" tests="1" skipped="0" failures="0" errors="0">
-<testcase classname="BillPay" name="Payment" time="18.953">
+<testsuite name="Cucumber" time="20.25" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="Update" name="UpdateInfo" time="19.941">
 <system-out><![CDATA[
-And User enter name.........................................................passed
-And User enter password.....................................................passed
-And User click billPay section..............................................passed
-And User enter payeeName....................................................passed
-And User enter address......................................................passed
-And User enter city.........................................................passed
-And User enter state........................................................passed
-And User enter zipcode......................................................passed
-And User enter phone........................................................passed
-And User enter account......................................................passed
-And User enter verifyAccount................................................passed
-And User enter amount.......................................................passed
-And User click sendPayment button...........................................passed
+Given User includes page....................................................passed
+And User sends name.........................................................passed
+And User sends password.....................................................passed
+And User clicked button.....................................................passed
+And Click UpdateContactInfo section.........................................passed
+And Update address..........................................................passed
+And Update zipcode..........................................................passed
+And Click Update button.....................................................passed
+Then User should see updated contact info...................................passed
 ]]></system-out>
 </testcase>
 </testsuite>
